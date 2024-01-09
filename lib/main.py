@@ -35,23 +35,23 @@ if __name__ == '__main__':
     print(customer1.customer_reviews)
 
     print('\n customer_restaurants ')
-    # returns the customer reviews
+    # to return the customer reviews
     print(customer1.customer_restaurants)
 
     print('\n full_name -')
-    # return customer full_name
+    # to return customer full_name
     print(customer1.full_name)
 
     print('\n favorite_restaurant ')
-    # return restaurant with the highest review for this customer
+    # to return restaurant with the highest review for this customer
     print(customer1.favorite_restaurant())
 
     print('\n add_review() ')
-    # add review and return it
+    # to add review and return it
     print(customer1.add_review(restaurant1, 8, "Honey, I'm so high!"))
 
     print('\n delete_reviews() ')
-    # delete reviews that belong to specific restaurants
+    # to delete reviews that belong to specific restaurants
     customer1.delete_reviews(restaurant1)
 
     review1 = session.query(Review).first()

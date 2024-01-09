@@ -113,17 +113,17 @@ class Customer(Base):
 
 
 class Review(Base):
-    # create Review table name
+    
     __tablename__ = 'reviews'
 
-    # create class attributes and table columns
+    #  class attributes and table columns
     id = Column(Integer(), primary_key=True)
     restaurant_id = Column(Integer(), ForeignKey('restaurants.id'))
     description = Column(String())
     star_rating = Column(Integer())
     customer_id = Column(Integer(), ForeignKey('customers.id'))
 
-    # create class relationships as attributes
+    #  class relationships as attributes
     customer = relationship('Customer', back_populates='reviews')
     restaurant = relationship('Restaurant', back_populates='reviews')
 
@@ -132,16 +132,16 @@ class Review(Base):
         return (f"Customer({self.customer_id}) | Restaurant({self.restaurant_id}) | start-rating({self.star_rating}) |"
                 f" {self.description}: {self.star_rating} stars\n")
 
-    # return customer
+    # to return customer
     @property
     def review_customer(self):
         return self.customer
 
-    # return customer
+    # to return customer
     @property
     def review_restaurant(self):
         return self.restaurant
 
-    # return full review details
+    # to return full review details
     def full_review(self):
         return f"Review for '{self.restaurant.name} restaurant' by '{self.customer.full_name}': {self.star_rating} stars\n"
